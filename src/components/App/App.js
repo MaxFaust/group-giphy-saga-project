@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Favorites from '../Favorites/Favorites'
-
+import InputForm from '../InputForm/InputForm'
 
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div>
         <h1>Giphy Search!</h1>
-        <Favorites />
+        <InputForm/>
       </div>
     );
   }
