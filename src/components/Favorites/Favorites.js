@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
+import FavoriteGIF from '../FavoriteGIF/FavoriteGIF'
+import Box from '@material-ui/core/Box'
+
 
 class Favorites extends Component {
     state = {  }
     render() { 
         return ( 
-            <Card>
-                <CardContent>Hello</CardContent>
-                <CardActions>Hello</CardActions>
-            </Card>
+            <Box width="75%" margin="auto">
+                <FavoriteGIF />
+            </Box>
          );
     }
 }
