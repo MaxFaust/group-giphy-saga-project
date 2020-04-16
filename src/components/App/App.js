@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Favorites from '../Favorites/Favorites'
 import InputForm from '../InputForm/InputForm'
 
 
