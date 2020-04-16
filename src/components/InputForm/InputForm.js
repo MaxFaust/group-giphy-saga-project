@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
-// const mapStateToProps = reduxState => ({
-//     reduxState,
-// });
+const mapReduxStateToProps = reduxState => ({
+    reduxState,
+});
 
 class NewInputForm extends Component {
     state = {
@@ -24,7 +24,7 @@ class NewInputForm extends Component {
 
     addNewGiphy = event => {
         event.preventDefault();
-        //this.props.dispatch({ type: 'SEARCH_GIPHY', payload: this.state.newGiphy })
+        this.props.dispatch({ type: 'SEARCH_GIPHY', payload: this.state.newGiphy })
         this.setState({
             newGiphy: {
                 giphy: this.state.newGiphy,
@@ -46,5 +46,5 @@ class NewInputForm extends Component {
     }
 }
 
-// Need to add: connect(mapReduxStateToProps)
-export default (NewInputForm);
+// Need to add: 
+export default connect(mapReduxStateToProps) (NewInputForm);
