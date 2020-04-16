@@ -24,10 +24,11 @@ class NewInputForm extends Component {
 
     addNewGiphy = event => {
         event.preventDefault();
+        console.log('state of newGiphy:', this.state.newGiphy);
         this.props.dispatch({ type: 'SEARCH_GIPHY', payload: this.state.newGiphy })
         this.setState({
             newGiphy: {
-                giphy: this.state.newGiphy,
+                giphy: '',
             }
         });
     }

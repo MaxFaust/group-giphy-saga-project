@@ -1,7 +1,13 @@
+const axios = require('axios');
+
 const express = require('express');
 const pool = require('../modules/pool');
 
 const router = express.Router();
+
+const dotenv = require('dotenv');
+dotenv.config();
+console.log('API Key', process.env.GIPHY_API_KEY);
 
 // return all favorite images
 router.get('/', (req, res) => {
@@ -15,6 +21,18 @@ router.get('/', (req, res) => {
     });
 });
 
+//search request from GIPHY API
+router.post('/gif', (req, res) => {
+  console.log('Hamburger?', req.body)
+  axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${req.body.giphy}`)
+        .then(response => {
+            res.send(response.data.data);
+        })
+        .catch(error => {
+            console.log('Error on GET:', error)
+            res.sendStatus(500);
+        })
+})
 
 // add a new favorite 
 router.post('/', (req, res) => {
