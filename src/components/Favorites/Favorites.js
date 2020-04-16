@@ -16,12 +16,20 @@ class Favorites extends Component {
     componentDidMount() {
         this.getGifs()
     }
+
+    enterSearch = (event) => {
+        event.preventDefault();
+        this.props.history.push('/');
+    }
     
     render() { 
         return ( 
             <Box width="75%" margin="auto">
                 {this.props.gifList.map(item => <FavoriteGIF url={item.embedded_url} title={item.name}/>)}
+                <button type="submit" onClick={this.enterSearch}>Search</button>
             </Box>
+
+            
          );
     }
 }
