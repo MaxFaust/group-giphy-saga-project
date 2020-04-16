@@ -36,8 +36,8 @@ function* searchGif(action) {
 
 function* getGif(action) {
     console.log('In getGif');
-    try {
-        let response = yield axios.get('/api/gif');
+    try{
+        let response = yield axios.get('/api/favorite');
         console.log('getGif response', response);
         yield put({
             type: 'SET_GIF',
