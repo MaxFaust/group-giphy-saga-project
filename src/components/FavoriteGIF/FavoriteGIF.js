@@ -10,7 +10,8 @@ class FavoriteGIF extends Component {
         return ( 
             <Card className="card">
                 <CardContent>
-                    <iframe src={this.props.url} width="100%" height="450" frameBorder="0" allowFullScreen></iframe>
+                    <h1>{this.props.title}</h1>
+                    <iframe src={this.props.url} width="100%" height="450" frameBorder="0" allowFullScreen title={this.props.title}></iframe>
                 </CardContent>
             </Card>
          );
