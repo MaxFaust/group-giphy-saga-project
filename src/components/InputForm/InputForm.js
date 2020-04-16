@@ -33,6 +33,12 @@ class NewInputForm extends Component {
         });
     }
 
+    enterFavourite = (event) => {
+        event.preventDefault();
+        this.props.history.push('/favorites');
+    }
+
+
     render() {
         return (
             <div box='col-med-6'>
@@ -42,6 +48,8 @@ class NewInputForm extends Component {
                     <input type='submit' value='Add New Giphy' />
 
                 </form>
+
+                <button type="submit" onClick={this.enterFavourite}>Favourite</button>
             </div>
         );
     }

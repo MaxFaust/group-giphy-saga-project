@@ -17,14 +17,19 @@ class Favorites extends Component {
         this.getGifs()
     }
 
+    enterSearch = (event) => {
+        event.preventDefault();
+        this.props.history.push('/');
+    }
     handleCategory = (category) => {
         this.props.dispatch({type: 'UPDATE_CATEGORY', payload:category})
-      }
+    }
     
     render() { 
         return ( 
             <Box width="75%" margin="auto">
                 {this.props.gifList.map(item => <FavoriteGIF url={item.embedded_url} title={item.name}/>)}
+                <button type="submit" onClick={this.enterSearch}>Search</button>
                 <td className="td-dropdown">
                 <div class='dropdown'>
                 <button key={this.props.category} className='dropbtn btn btn-success'>
@@ -65,6 +70,8 @@ class Favorites extends Component {
                 </div>
                 </td>
             </Box>
+
+            
          );
     }
 }
