@@ -43,10 +43,10 @@ class NewInputForm extends Component {
         return (
             <div box='col-med-6'>
                 <h3>This is the form</h3>
-                <pre>{JSON.stringify(this.state)}</pre>
                 <form onSubmit={this.addNewGiphy}>
                     <input type='text' value={this.state.newGiphy.name} onChange={this.handleNameChange} />
                     <input type='submit' value='Add New Giphy' />
+
                 </form>
 
                 <button type="submit" onClick={this.enterFavourite}>Favourite</button>
