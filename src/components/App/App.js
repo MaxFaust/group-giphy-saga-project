@@ -8,7 +8,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
         <h1>Giphy Search!</h1>
         <Router>
           <Route exact path='/' component={InputForm} />

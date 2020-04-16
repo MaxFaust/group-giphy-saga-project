@@ -20,3 +20,9 @@ CREATE TABLE "favourites" (
     "categories" INTEGER,
     "embedded_url" VARCHAR (100) NOT NULL
 );
+
+INSERT INTO "favourites"
+    ("name", "categories", "embedded_url")
+VALUES
+    ('Cheer Up Hug GIF By Chibird', 3, 'https://giphy.com/embed/9JnRMIFMYAKpaHRXRF'),
+    ('No Idea Idk GIF By SomeGoodNews', 1, 'https://giphy.com/embed/Ur8XCl98PfFqEmyNIE');
