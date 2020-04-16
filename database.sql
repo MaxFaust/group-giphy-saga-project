@@ -12,3 +12,11 @@ CREATE TABLE "category" (
 -- Default categories. You may change them :)
 INSERT INTO "category" ("name")
 VALUES ('funny'), ('cohort'), ('cartoon'), ('nsfw'), ('meme');
+
+-- favouriate table
+CREATE TABLE "favourites" (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR (100) NOT NULL,
+    "categories" INTEGER,
+    "embedded_url" VARCHAR (100) NOT NULL
+);
