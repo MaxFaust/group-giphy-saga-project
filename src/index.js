@@ -16,6 +16,11 @@ const sagaMiddleware = createSagaMiddleware();
 
 function* rootSaga(){
     yield takeEvery("FETCH_GIF", getGif);
+    yield takeEvery("SEARCH_GIPHY", searchGif);
+}
+
+function* searchGif(action) {
+    console.log('In searchGif');
 }
 
 function* getGif(action){
