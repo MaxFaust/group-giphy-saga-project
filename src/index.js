@@ -11,6 +11,7 @@ import { takeEvery, put } from "redux-saga/effects";
 import axios from "axios";
 import logger from "redux-logger";
 
+
 //Create Saga Middleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -21,7 +22,7 @@ function* rootSaga(){
 function* getGif(action){
     console.log('In getGif');
     try{
-        let response = yield axios.get('/api/gif');
+        let response = yield axios.get('/api/favorite');
         console.log('getGif response', response);
         yield put({
             type: 'SET_GIF',
@@ -36,8 +37,8 @@ const gifReducer = (state = [], action)=>{
     switch(action.type){
         case 'SET_GIF':
             return action.payload;
-            default:
-                return state;
+        default:
+            return state;
     }
 }
 
