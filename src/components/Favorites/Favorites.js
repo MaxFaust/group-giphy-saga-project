@@ -20,7 +20,7 @@ class Favorites extends Component {
     render() { 
         return ( 
             <Box width="75%" margin="auto">
-                {this.props.gifList.map(item => <FavoriteGIF url={item.embedded_url}/>)}
+                {this.props.gifList.map(item => <FavoriteGIF url={item.embedded_url} title={item.name}/>)}
             </Box>
          );
     }
