@@ -13,7 +13,7 @@ class SearchResults extends Component {
     render() {
         return (
             <Box width="90%" margin="auto" align="center">
-                {this.props.gifList.map(item => <Cardi_B embed_url={item.embed_url}/>)}
+                {this.props.gifList.map(item => <Cardi_B name={item.title} embed_url={item.embed_url}/>)}
             </Box>
         );
     }

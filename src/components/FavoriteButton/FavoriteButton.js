@@ -13,42 +13,64 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { connect } from 'react-redux';
+import axios from 'axios'
 
 class FavoriteButton extends Component {
   state = {
     open: false,
     favorite: '',
   };
-  handleChange = name => event => {
-    this.setState({ [name]: Number(event.target.value) });
+
+  handleChange = event => {
+    this.setState({ favorite: Number(event.target.value) });
   };
+
   handleClickOpen = () => {
     this.setState({ open: true });
   };
+
   handleClose = () => {
     this.setState({ open: false });
   };
 
+  handleConfirm = () => {
+    this.setState({ open: false });
+    axios.post(`/api/favorite`, {
+      name: this.props.name,
+      categories: this.state.favorite,
+      embedded_url: this.props.url
+    })
+    .then( (response) => {
+      console.log(response)
+      
+    }).catch( (error) => {
+      alert('Bad things happened...')
+      console.log('Error in post /api/favorite', error)
+    })
+  }
+
   render() {
     return (
       <div>
-        <Button onClick={this.handleClickOpen}>Open select dialog</Button>
+        <Button onClick={this.handleClickOpen}>Favorite This</Button>
         <Dialog disableBackdropClick disableEscapeKeyDown open={this.state.open} onClose={this.handleClose}>
           <DialogTitle>Fill the form</DialogTitle>
           <DialogContent>
             <form >
               <FormControl >
-                <InputLabel htmlFor="demo-dialog-native">Favorite</InputLabel>
+                <InputLabel htmlFor="demo-dialog-native">Category</InputLabel>
                 <Select
                   native
-                  value={this.favorite}
+                  value={this.state.favorite}
                   onChange={this.handleChange}
                   input={<Input id="demo-dialog-native" />}
                 >
                   <option aria-label="None" value="" />
-                  <option value={10}>Animals</option>
-                  <option value={20}>Funny</option>
-                  <option value={30}>Other</option>
+                  <option value={1}>Funny</option>
+                  <option value={2}>Cohort</option>
+                  <option value={3}>Cartoon</option>
+                  <option value={4}>NSFW</option>
+                  <option value={5}>Meme</option>
                 </Select>
               </FormControl>
             </form>
@@ -57,8 +79,8 @@ class FavoriteButton extends Component {
             <Button onClick={this.handleClose} color="primary">
               Cancel
           </Button>
-            <Button onClick={this.handleClose} color="primary">
-              Ok
+            <Button onClick={this.handleConfirm} color="primary">
+              Favorite
           </Button>
           </DialogActions>
         </Dialog>
