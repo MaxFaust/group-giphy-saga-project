@@ -11,9 +11,8 @@ class Cardi_B extends Component {
         return (
             <Box display="inline-block" width="350px" className="card">
                 <Card>
-                    <iframe width='100%' height='300px' frameBorder="0" src={this.props.embed_url}>
-                    </iframe>
-                    <FavoriteButton/>
+                    <iframe width='100%' height='300px' frameBorder="0" src={this.props.embed_url}></iframe>
+                    <FavoriteButton name={this.props.name} url={this.props.embed_url}/>
                 </Card>
             </Box>
         );

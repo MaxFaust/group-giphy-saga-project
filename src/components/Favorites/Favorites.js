@@ -28,7 +28,7 @@ class Favorites extends Component {
     render() { 
         return ( 
             <Box width="75%" margin="auto">
-                {this.props.gifList.map(item => <FavoriteGIF url={item.embedded_url} title={item.name}/>)}
+                {this.props.gifList.map(item => <FavoriteGIF url={item.embedded_url}/>)}
                 <button type="submit" onClick={this.enterSearch}>Search</button>
                 <td className="td-dropdown">
                 <div class='dropdown'>
