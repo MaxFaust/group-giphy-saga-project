@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom'
 
 const mapReduxStateToProps = reduxState => ({
     reduxState,
@@ -42,7 +43,6 @@ class NewInputForm extends Component {
     render() {
         return (
             <div box='col-med-6'>
-                <h3>This is the form</h3>
                 <form onSubmit={this.addNewGiphy}>
                     <input type='text' value={this.state.newGiphy.name} onChange={this.handleNameChange} />
                     <input type='submit' value='Add New Giphy' />
@@ -56,4 +56,4 @@ class NewInputForm extends Component {
 }
 
 
-export default connect(mapReduxStateToProps) (NewInputForm);
+export default withRouter(connect(mapReduxStateToProps)(NewInputForm));
