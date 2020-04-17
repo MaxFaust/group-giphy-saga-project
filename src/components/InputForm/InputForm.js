@@ -47,5 +47,5 @@ class NewInputForm extends Component {
     }
 }
 
-// Need to add: 
+
 export default connect(mapReduxStateToProps) (NewInputForm);
