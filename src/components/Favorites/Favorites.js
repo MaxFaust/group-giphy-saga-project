@@ -17,16 +17,21 @@ class Favorites extends Component {
         this.getGifs()
     }
 
+    enterSearch = (event) => {
+        event.preventDefault();
+        this.props.history.push('/');
+    }
     handleCategory = (category) => {
         this.props.dispatch({type: 'UPDATE_CATEGORY', payload:category})
-      }
+    }
     
     render() { 
         return ( 
             <Box width="75%" margin="auto">
                 {this.props.gifList.map(item => <FavoriteGIF id={item.id} url={item.embedded_url} title={item.name} category={item.categories}/>)}
-                
             </Box>
+
+            
          );
     }
 }

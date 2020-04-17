@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom'
 
 const mapReduxStateToProps = reduxState => ({
     reduxState,
@@ -33,19 +34,26 @@ class NewInputForm extends Component {
         });
     }
 
+    enterFavourite = (event) => {
+        event.preventDefault();
+        this.props.history.push('/favorites');
+    }
+
+
     render() {
         return (
             <div box='col-med-6'>
-                <h3>This is the form</h3>
-                <pre>{JSON.stringify(this.state)}</pre>
                 <form onSubmit={this.addNewGiphy}>
                     <input type='text' value={this.state.newGiphy.name} onChange={this.handleNameChange} />
                     <input type='submit' value='Add New Giphy' />
+
                 </form>
+
+                <button type="submit" onClick={this.enterFavourite}>Favourite</button>
             </div>
         );
     }
 }
 
-// Need to add: 
-export default connect(mapReduxStateToProps) (NewInputForm);
+
+export default withRouter(connect(mapReduxStateToProps)(NewInputForm));
